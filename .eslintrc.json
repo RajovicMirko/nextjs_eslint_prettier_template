@@ -1,9 +1,42 @@
 {
-  "extends": ["next", "next/core-web-vitals", "prettier"],
+  "extends": [
+    "next",
+    "next/core-web-vitals",
+    "prettier",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+
+    "eslint-config-prettier"
+  ],
   "plugins": ["prettier"],
+  // "settings": {
+  //   "react": {
+  //     // Tells eslint-plugin-react to automatically detect the version of React to use.
+  //     "version": "detect"
+  //   },
+  //   // Tells eslint how to resolve imports
+  //   "import/resolver": {
+  //     "node": {
+  //       "paths": ["./"],
+  //       "extensions": [".js", ".jsx", ".ts", ".tsx"],
+  //       "moduleDirectory": ["node_modules", "./src"]
+  //     }
+  //   }
+  // },
   "rules": {
+    // just for easier project start
+    // "@typescript-eslint/no-empty-function": "off",
+    // "@typescript-eslint/no-explicit-any": "off",
+
     "prettier/prettier": "warn",
     "no-console": "warn",
-    "no-unused-vars": "error"
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "ignoreRestSiblings": true,
+        "argsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_"
+      }
+    ]
   }
 }
