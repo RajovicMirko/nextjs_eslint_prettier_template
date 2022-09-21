@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint --max-warnings=0",
     "prepare": "husky install",
-    "precommit": "npm run lint"
+    "precommit": "lint-staged"
   },
   "dependencies": {
     "next": "12.3.1",
