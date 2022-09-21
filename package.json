@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next eslint",
+    "eslint": "next lint",
     "prepare": "husky install",
     "precommit": "lint-staged"
   },

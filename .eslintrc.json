@@ -9,20 +9,6 @@
     "eslint-config-prettier"
   ],
   "plugins": ["prettier"],
-  // "settings": {
-  //   "react": {
-  //     // Tells eslint-plugin-react to automatically detect the version of React to use.
-  //     "version": "detect"
-  //   },
-  //   // Tells eslint how to resolve imports
-  //   "import/resolver": {
-  //     "node": {
-  //       "paths": ["./"],
-  //       "extensions": [".js", ".jsx", ".ts", ".tsx"],
-  //       "moduleDirectory": ["node_modules", "./src"]
-  //     }
-  //   }
-  // },
   "rules": {
     // just for easier project start
     // "@typescript-eslint/no-empty-function": "off",
