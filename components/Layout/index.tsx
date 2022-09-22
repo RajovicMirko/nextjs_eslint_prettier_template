@@ -8,7 +8,8 @@ function Layout({ children }: PropsWithChildren) {
       style={{
         position: 'relative',
         minHeight: '100vh',
-        background: 'pink'
+        background: 'pink',
+        padding: '30px 0 0 30px'
       }}
     >
       <h1 style={{ marginTop: 0 }}>Test</h1>

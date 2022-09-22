@@ -11,14 +11,12 @@ const ProductDetails = () => {
     retry: false
   });
 
-  if (isLoading) return <div>Loading...</div>;
-
   const DescriptionItem = ({ label, value }: { label: string; value: any }) => {
     if (!['images', 'thumbnail'].includes(label)) {
       return (
         <li style={{ display: 'flex', columnGap: '10px' }}>
           <span style={{ minWidth: '150px' }}>{label}:</span>
-          <span style={{ whiteSpace: 'pre-wrap' }}>{value}</span>
+          <p style={{ margin: 0, maxWidth: '500px' }}>{value}</p>
         </li>
       );
     }
@@ -26,11 +24,14 @@ const ProductDetails = () => {
     return null;
   };
 
+  if (isLoading) return <div>Loading...</div>;
+
+  if (!product) return null;
+
   return (
     <div
       style={{
         display: 'flex',
-        justifyContent: 'center',
         alignItems: 'center',
         paddingTop: '30px'
       }}
@@ -38,7 +39,7 @@ const ProductDetails = () => {
       <div>
         <Image
           src={product?.thumbnail as string}
-          alt="product-image"
+          alt={`product-image-${product?.title}`}
           width={400}
           height={300}
         />
