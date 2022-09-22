@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
 import { getProduct } from '../../server/products';
 
-const CarDetails = () => {
+const ProductDetails = () => {
   const router = useRouter();
   const { id } = router.query;
 
@@ -20,4 +20,4 @@ const CarDetails = () => {
   );
 };
 
-export default CarDetails;
+export default ProductDetails;

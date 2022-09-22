@@ -1,9 +1,10 @@
 import { NextPage } from 'next';
 import Link from 'next/link';
 import { useQuery } from 'react-query';
-import { getProducts, Product } from '../../server/products';
+import { getProducts } from '../../server/products';
+import { Product } from '../../server/types';
 
-const Car: NextPage = () => {
+const Products: NextPage = () => {
   const { data, isLoading } = useQuery(['products'], getProducts, {
     retry: false
   });
@@ -12,11 +13,11 @@ const Car: NextPage = () => {
 
   return (
     <div>
-      <h2>Car page</h2>
+      <h2>Products page</h2>
       <ol>
         {data?.products?.map((product: Product) => (
           <li key={product?.id}>
-            <Link href={`car/${product?.id}`}>{product?.title}</Link>
+            <Link href={`products/${product?.id}`}>{product?.title}</Link>
           </li>
         ))}
       </ol>
@@ -24,4 +25,4 @@ const Car: NextPage = () => {
   );
 };
 
-export default Car;
+export default Products;
