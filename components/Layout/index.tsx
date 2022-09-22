@@ -11,20 +11,18 @@ function Layout({ children }: PropsWithChildren) {
         background: 'pink'
       }}
     >
-      <div>
-        <h1>Test</h1>
+      <h1 style={{ marginTop: 0 }}>Test</h1>
 
-        <div style={{ display: 'flex', columnGap: '20px' }}>
-          <Link href="/">
-            <a>Home</a>
-          </Link>
-          <Link href={Urls.products}>
-            <a>Products</a>
-          </Link>
-        </div>
-
-        {children}
+      <div style={{ display: 'flex', columnGap: '20px' }}>
+        <Link href="/">
+          <a>Home</a>
+        </Link>
+        <Link href={Urls.products}>
+          <a>Products</a>
+        </Link>
       </div>
+
+      {children}
     </div>
   );
 }

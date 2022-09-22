@@ -12,7 +12,7 @@
   "rules": {
     // just for easier project start
     // "@typescript-eslint/no-empty-function": "off",
-    // "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-explicit-any": "off",
 
     "prettier/prettier": "warn",
     "no-console": "warn",
