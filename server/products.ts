@@ -1,6 +1,7 @@
 import { QueryFunction } from 'react-query';
 import { generateHttpUrl } from './helpers';
-import { Product, ProductsResponse, QueryKeyArray, Urls } from './types';
+import { Product, ProductsResponse } from '../ts/product';
+import { QueryKeyArray, Urls } from '../ts/types';
 
 export const getProducts: QueryFunction<
   ProductsResponse,

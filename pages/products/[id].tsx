@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
+import { Layouts } from '../../components/Layout';
 import { getProduct } from '../../server/products';
 
 const ProductDetails = () => {
@@ -59,5 +60,7 @@ const ProductDetails = () => {
     </div>
   );
 };
+
+ProductDetails.layout = Layouts.subpage;
 
 export default ProductDetails;

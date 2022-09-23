@@ -1,10 +1,11 @@
-import { NextPage } from 'next';
 import Link from 'next/link';
 import { useQuery } from 'react-query';
+import { Layouts } from '../../components/Layout';
 import { getProducts } from '../../server/products';
-import { Product } from '../../server/types';
+import { Product } from '../../ts/product';
+import { ComponentCustom } from '../_app';
 
-const Products: NextPage = () => {
+const Products: ComponentCustom = () => {
   const { data, isLoading } = useQuery(['products'], getProducts, {
     retry: false
   });
@@ -24,5 +25,7 @@ const Products: NextPage = () => {
     </div>
   );
 };
+
+Products.layout = Layouts.page;
 
 export default Products;
