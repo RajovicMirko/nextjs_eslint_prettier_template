@@ -8,7 +8,7 @@ function PageLayout({ children }: PropsWithChildren) {
       style={{
         position: 'relative',
         minHeight: '100vh',
-        background: 'gray',
+        background: '#DEE0E6',
         padding: '30px 0 0 30px'
       }}
     >

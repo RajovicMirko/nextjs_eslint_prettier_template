@@ -1,17 +1,36 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { GetStaticPaths, GetStaticProps } from 'next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
 import { Layouts } from '../../components/Layout';
-import { getProduct } from '../../server/products';
+import { Loading } from '../../components/Loading/Loading';
+import { getProduct, getProducts } from '../../server/products';
+import { QueryKeyArray } from '../../ts/types';
+import { ComponentCustom } from '../_app';
 
-const ProductDetails = () => {
-  const router = useRouter();
-  const { id } = router.query;
+export const getStaticPaths: GetStaticPaths = async () => {
+  const { products } = await getProducts();
 
-  const { data: product, isLoading } = useQuery(['product', id], getProduct, {
-    retry: false
-  });
+  const paths = products?.map((product: any) => ({
+    params: { id: product?.id?.toString() }
+  }));
 
+  return {
+    paths,
+    fallback: false // can also be true or 'blocking'
+  };
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const data = await getProduct(params?.id as string);
+
+  return {
+    props: { data }
+  };
+};
+
+const ProductDetails = ({ data: product }: ComponentCustom) => {
   const DescriptionItem = ({ label, value }: { label: string; value: any }) => {
     if (!['images', 'thumbnail'].includes(label)) {
       return (
@@ -24,10 +43,6 @@ const ProductDetails = () => {
 
     return null;
   };
-
-  if (isLoading) return <div>Loading...</div>;
-
-  if (!product) return null;
 
   return (
     <div

@@ -1,17 +1,17 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import Link from 'next/link';
-import { useQuery } from 'react-query';
+
 import { Layouts } from '../../components/Layout';
 import { getProducts } from '../../server/products';
 import { Product } from '../../ts/product';
 import { ComponentCustom } from '../_app';
 
-const Products: ComponentCustom = () => {
-  const { data, isLoading } = useQuery(['products'], getProducts, {
-    retry: false
-  });
+export async function getServerSideProps(context: any) {
+  const data = await getProducts();
+  return { props: { data } };
+}
 
-  if (isLoading) return <div>Loading...</div>;
-
+const Products = ({ data }: ComponentCustom) => {
   return (
     <div>
       <h2>Products page</h2>

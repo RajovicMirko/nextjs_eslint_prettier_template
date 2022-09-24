@@ -1,24 +1,16 @@
-import { QueryFunction } from 'react-query';
 import { generateHttpUrl } from './helpers';
-import { Product, ProductsResponse } from '../ts/product';
-import { QueryKeyArray, Urls } from '../ts/types';
 
-export const getProducts: QueryFunction<
-  ProductsResponse,
-  QueryKeyArray
-> = async () => {
+import { Urls } from '../ts/types';
+
+export const getProducts = async () => {
   const url = generateHttpUrl(Urls.products);
-
   const response = await fetch(url);
   return await response.json();
 };
 
-export const getProduct: QueryFunction<Product, QueryKeyArray> = async ({
-  queryKey: [_, id]
-}) => {
+export const getProduct = async (id: string) => {
   if (id) {
     const url = generateHttpUrl(`${Urls.products}/${id}`);
-
     const response = await fetch(url);
     return await response.json();
   }
